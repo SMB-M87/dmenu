@@ -1,0 +1,14 @@
+--- dmenu.c
++++ dmenu.c
+@@ -941,6 +1144,11 @@ main(int argc, char *argv[])
+ 		else if (!strcmp(argv[i], "-i")) { /* case-insensitive item matching */
+ 			fstrncmp = strncasecmp;
+ 			fstrstr = cistrstr;
++		} else if (!strcmp(argv[i], "-vi")) {
++			vi_mode = 1;
++			using_vi_mode = start_mode;
++			global_esc.ksym = XK_Escape;
++			global_esc.state = 0;
+ 		} else if (i + 1 == argc)
+ 			usage();
+ 		/* these options take one argument */
